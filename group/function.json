@@ -1,0 +1,30 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "post",
+        "delete"
+      ],
+      "name": "req",
+      "route": "group"
+    }, 
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRGroupActions",
+      "connectionStringSetting": "AzureSignalRConnectionString",
+      "hubName": "default",
+      "userId": "headers.{user}",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/group/index.js"
+}
